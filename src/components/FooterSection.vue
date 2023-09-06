@@ -4,40 +4,8 @@
       <div class="footer-navbar-section">
         <nav class="footer-navbar">
           <ul class="footer-navbar-list">
-            <li><a class="footer-nav-link" href="#">about us</a></li>
-            <li>
-              <a class="footer-nav-link" href="#">tour</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">help</a>
-            </li>
-            <li><a class="footer-nav-link" href="#">blog</a></li>
-            <li>
-              <a class="footer-nav-link" href="#">chat</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">data</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">legal</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">privacy policy</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">work here</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">advertising info</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">mobile</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">contact us</a>
-            </li>
-            <li>
-              <a class="footer-nav-link" href="#">feedback</a>
+            <li v-for="item in footerNavbarList" :key="item">
+              <a class="footer-nav-link" href="#">{{ item }}</a>
             </li>
           </ul>
         </nav>
@@ -62,98 +30,18 @@
         </div>
       </div>
       <div class="footer-details-section grid--6-cols grid">
-        <nav class="nav-col">
-          <p class="footer-heading">TECHNOLOGY</p>
+        <nav
+          v-for="item in footerNavColumn"
+          :key="item.columnHeader"
+          class="nav-col"
+        >
+          <p class="footer-heading">{{ item.columnHeader }}</p>
           <ul class="footer-nav">
-            <li>
-              <a class="footer-link" href="javascript:void(0)"
-                >Stack Overflow</a
-              >
+            <li v-for="footerLink in item.columnItems" :key="footerLink">
+              <a class="footer-link" href="javascript:void(0)">{{
+                footerLink
+              }}</a>
             </li>
-            <li><a class="footer-link" href="#">Server Fault</a></li>
-            <li><a class="footer-link" href="#">Super User</a></li>
-            <li><a class="footer-link" href="#">Web Application</a></li>
-            <li><a class="footer-link" href="#">Ask Ubuntu</a></li>
-            <li><a class="footer-link" href="#">Webmasters</a></li>
-            <li><a class="footer-link" href="#">Game Development</a></li>
-            <li><a class="footer-link" href="#">Tex - Latex</a></li>
-          </ul>
-        </nav>
-        <nav class="nav-col">
-          <p class="footer-heading"></p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">Programmers</a></li>
-            <li><a class="footer-link" href="#">Unix & Linux</a></li>
-            <li><a class="footer-link" href="#">Ask Different (Apple)</a></li>
-            <li><a class="footer-link" href="#">WordPress Development</a></li>
-            <li>
-              <a class="footer-link" href="#">Geographic Information System</a>
-            </li>
-            <li><a class="footer-link" href="#">Electrical Engineering</a></li>
-            <li><a class="footer-link" href="#">Android Enthusiasts</a></li>
-            <li>
-              <a class="footer-link" href="#"><span>50 + more</span></a>
-            </li>
-          </ul>
-        </nav>
-        <nav class="nav-col">
-          <p class="footer-heading">LIFE / ARTS</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">Photography</a></li>
-            <li><a class="footer-link" href="#">Science</a></li>
-            <li><a class="footer-link" href="#">Graphic Design</a></li>
-            <li><a class="footer-link" href="#">Movie & TV</a></li>
-            <li>
-              <a class="footer-link" href="#">Seasoned Advice (cooking)</a>
-            </li>
-            <li><a class="footer-link" href="#">Home Improvement</a></li>
-            <li>
-              <a class="footer-link" href="#">Personal Finance & Money</a>
-            </li>
-            <li>
-              <a class="footer-link" href="#"><span>19 + more</span></a>
-            </li>
-          </ul>
-        </nav>
-        <nav class="nav-col">
-          <p class="footer-heading">CULTURE / RECREATION</p>
-          <ul class="footer-nav">
-            <li>
-              <a class="footer-link" href="#">English Language & usage</a>
-            </li>
-            <li><a class="footer-link" href="#">Skeptics</a></li>
-            <li><a class="footer-link" href="#">Mi Yodeya (Judaism)</a></li>
-            <li><a class="footer-link" href="#">Travel</a></li>
-            <li><a class="footer-link" href="#">Christianity</a></li>
-            <li><a class="footer-link" href="#">Arqade (gaming)</a></li>
-            <li><a class="footer-link" href="#">Bicycles</a></li>
-            <li>
-              <a class="footer-link" href="#"><span>21 + more</span></a>
-            </li>
-          </ul>
-        </nav>
-        <nav class="nav-col">
-          <p class="footer-heading">SCIENCE</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">Mathematics</a></li>
-            <li><a class="footer-link" href="#">Cross Validate (stats)</a></li>
-            <li>
-              <a class="footer-link" href="#">Theoretical Computer Science</a>
-            </li>
-            <li><a class="footer-link" href="#">Physics</a></li>
-            <li><a class="footer-link" href="#">MathOverflow</a></li>
-            <li><a class="footer-link" href="#">Chemistry</a></li>
-            <li><a class="footer-link" href="#">Biology</a></li>
-            <li><a class="footer-link" href="#">5 + more</a></li>
-          </ul>
-        </nav>
-        <nav class="nav-col">
-          <p class="footer-heading">OTHERS</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">Stack</a></li>
-            <li><a class="footer-link" href="#">Meta Stack Exchange</a></li>
-            <li><a class="footer-link" href="#">Area 51</a></li>
-            <li><a class="footer-link" href="#">Stack Overflow Careers</a></li>
           </ul>
         </nav>
       </div>
@@ -162,7 +50,103 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      footerNavbarList: [
+        "about us",
+        "tour",
+        "help",
+        "blog",
+        "chat",
+        "data",
+        "legal",
+        "privacy policy",
+        "work here",
+        "advertising info",
+        "mobile",
+        "contact us",
+        "feedback",
+      ],
+      footerNavColumn: [
+        {
+          columnHeader: "TECHNOLOGY1",
+          columnItems: [
+            "Stack Overflow",
+            "Server Fault",
+            "Super User",
+            "Web Application",
+            "Ask Ubuntu",
+            "Webmasters",
+            "Game Development",
+            "Tex - Latex",
+          ],
+        },
+        {
+          columnHeader: "TECHNOLOGY2",
+          columnItems: [
+            "Programmers",
+            "Unix & Linux",
+            "Ask Different (Apple)",
+            "WordPress Development",
+            "Geographic Information System",
+            "Electrical Engineering",
+            "Android Enthusiasts",
+            "50 + more",
+          ],
+        },
+        {
+          columnHeader: "LIFE / ARTS",
+          columnItems: [
+            "Photography",
+            "Science",
+            "Graphic Design",
+            "Movie & TV",
+            "Seasoned Advice (cooking)",
+            "Home Improvement",
+            "Personal Finance & Money",
+            "19 + more",
+          ],
+        },
+        {
+          columnHeader: "CULTURE / RECREATION",
+          columnItems: [
+            "English Language & usage",
+            "Skeptics",
+            "Mi Yodeya (Judaism)",
+            "Travel",
+            "Christianity",
+            "Arqade (gaming)",
+            "Bicycles",
+            "21 + more",
+          ],
+        },
+        {
+          columnHeader: "SCIENCE",
+          columnItems: [
+            "Mathematics",
+            "Cross Validate (stats)",
+            "Theoretical Computer Science",
+            "Physics",
+            "MathOverflow",
+            "Chemistry",
+            "Biology",
+            "5 + more",
+          ],
+        },
+        {
+          columnHeader: "OTHERS",
+          columnItems: [
+            "Stack",
+            "Meta Stack Exchange",
+            "Area 51",
+            "Stack Overflow Careers",
+          ],
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
@@ -205,6 +189,8 @@ export default {};
 
 .social-icon {
   color: #a6a6a6;
+  height: 24px;
+  width: 24px;
 }
 
 .footer-details-section {

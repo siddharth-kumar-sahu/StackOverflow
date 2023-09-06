@@ -8,7 +8,7 @@
     </div>
     <div class="question-activity">
       <p>
-        modified {{ question.updatedAt }} secs ago by
+        modified {{ time }} secs ago by
         <strong>{{ question.updatedBy }}</strong>
       </p>
     </div>
@@ -40,7 +40,7 @@
 
 <script>
 export default {
-  props: ["question"],
+  props: ["question", "time"],
 };
 </script>
 

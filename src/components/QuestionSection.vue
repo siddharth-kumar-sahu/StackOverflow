@@ -21,7 +21,7 @@
     </nav>
     <div class="question-content">
       <div v-for="question in questions" :key="question.id" class="question">
-        <Question :question="question" />
+        <Question :question="question" :time="activityTime" />
       </div>
     </div>
     <div class="question-section-logo">
@@ -38,11 +38,13 @@
 
 <script>
 import Question from "./Question";
+import moment from "moment";
 
 export default {
   data() {
     return {
       questions: [],
+      activityTime: "",
     };
   },
   components: {
@@ -59,7 +61,7 @@ export default {
         const question = {
           id: item.question_id,
           title: item.title,
-          updatedAt: item.last_activity_date,
+          updatedAt: moment(item.last_activity_date, "YYYYMMDD").fromNow(),
           updatedBy: item.owner.display_name,
           tags: item.tags,
           votes: item.score,
