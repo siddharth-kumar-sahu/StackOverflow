@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import Question from "./Question.vue";
+import Question from "./Question";
 
 export default {
   data() {

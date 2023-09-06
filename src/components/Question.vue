@@ -59,6 +59,7 @@ export default {
 
 .question-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   color: #a6a6a6;
 }
