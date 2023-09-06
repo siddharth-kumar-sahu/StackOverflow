@@ -1,10 +1,7 @@
 <template>
   <div class="side-bar">
     <div class="logo-stackoverflow">
-      <img
-        src="../assets/Stack_Overflow-Logo.wine.svg"
-        alt="stackoverflow logo"
-      />
+      <img src="../assets/stack_overflow.png" alt="stackoverflow logo" />
     </div>
     <ul class="sidebar-options">
       <li class="sidebar-option-components">
@@ -57,19 +54,16 @@ export default {};
 <style>
 .side-bar {
   /* border: 2px solid red; */
-
+  padding-left: 24px;
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.1);
-  /* max-width: 300px; */
 }
 .logo-stackoverflow {
-  width: 150px;
-  margin-bottom: 50px;
-  padding: 0 10px;
+  padding: 20px 10px;
 }
 
 .logo-stackoverflow img {
-  width: 200px;
-  margin-left: -20px;
+  height: 40px;
+  width: 152px;
 }
 .sidebar-options {
   list-style: none;

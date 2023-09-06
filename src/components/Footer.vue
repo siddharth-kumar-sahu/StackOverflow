@@ -151,9 +151,8 @@ export default {
 
 <style>
 .footer {
-  border-top: 1px solid #a6a6a6;
+  border-top: 1px solid #e4e4e4;
   width: 100%;
-  margin-top: 10px;
   padding: 0 36px;
 }
 
@@ -178,7 +177,7 @@ export default {
   text-decoration: none;
   color: #a6a6a6;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .social-links {
@@ -201,8 +200,6 @@ export default {
   display: grid;
   column-gap: 64px;
   row-gap: 96px;
-
-  /* margin-bottom: 9.6rem; */
 }
 
 .grid--6-cols {
@@ -210,8 +207,8 @@ export default {
 }
 
 .footer-heading {
-  font-size: 18px;
-  font-weight: 200;
+  font-size: 14px;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
@@ -226,6 +223,7 @@ export default {
 .footer-link:visited {
   text-decoration: none;
   font-size: 12px;
+  font-weight: 600;
   color: #a6a6a6;
   transition: all 0.3s;
 }

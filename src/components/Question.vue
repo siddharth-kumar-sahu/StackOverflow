@@ -53,8 +53,9 @@ export default {
 }
 
 .question-header {
+  font-size: 14px;
   padding: 0;
-  color: #0074cc;
+  color: #0a95ff;
 }
 
 .question-tags {

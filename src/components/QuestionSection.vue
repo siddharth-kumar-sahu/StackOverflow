@@ -1,28 +1,15 @@
 <template>
   <div class="question-section">
-    <div class="question-title">
-      <span class="small">Question</span>
-      <span class="large">Top</span>
+    <div class="title">
+      <span class="title-heading">top</span>
+      <span class="title-subheading">Questions</span>
     </div>
-    <nav class="question-navbar">
-      <ul class="main-nav-list">
-        <li><a class="main-nav-link" href="#">interesting</a></li>
-        <li>
-          <a class="main-nav-link" href="#">featured <span>432</span></a>
-        </li>
-        <li>
-          <a class="main-nav-link" href="#">hot</a>
-        </li>
-        <li><a class="main-nav-link" href="#">week</a></li>
-        <li>
-          <a class="main-nav-link" href="#">month</a>
-        </li>
-      </ul>
-    </nav>
+    <QuestionNav />
     <div class="question-content">
       <div v-for="question in questions" :key="question.id" class="question">
-        <Question :question="question" :time="activityTime" />
+        <Question :question="question" />
       </div>
+      <Loader v-if="loading" />
     </div>
     <div class="question-section-logo">
       <img src="../assets/SCR-20230901-mssm.png" alt="stackoverflow" />
@@ -37,22 +24,28 @@
 </template>
 
 <script>
+import QuestionNav from "./QuestionNav.vue";
 import Question from "./Question";
+import Loader from "./Loader";
 import moment from "moment";
 
 export default {
+  props: ["searchTerm"],
   data() {
     return {
       questions: [],
+      loading: true,
     };
   },
   components: {
+    QuestionNav,
     Question,
+    Loader,
   },
   async mounted() {
     try {
-      const apiUrl =
-        "https://api.stackexchange.com/2.3/questions?key=U4DMV*8nvpm3EOpvf69Rxw((&site=stackoverflow&order=desc&sort=activity&filter=default";
+      this.loading = true;
+      const apiUrl = `https://api.stackexchange.com/2.3/questions?key=U4DMV*8nvpm3EOpvf69Rxw((&site=stackoverflow&order=desc&sort=activity&filter=default&tagged=${this.searchTerm}`;
       const res = await fetch(apiUrl);
       const data = await res.json();
 
@@ -67,17 +60,14 @@ export default {
           answer: item.answer_count,
           views: item.view_count,
         };
-        console.log(
-          moment.unix(item.last_activity_date).fromNow(),
-          item.last_activity_date
-        );
-        console.log(question.updatedAt);
         return question;
       });
 
       this.questions = questions;
+      this.loading = false;
     } catch (e) {
       console.log(e);
+      this.loading = false;
     }
   },
 };
@@ -85,57 +75,21 @@ export default {
 
 <style>
 .question-section {
-  /* border: 2px solid red; */
-  width: 900px;
+  border-top: 1px solid #f8f9f9;
 }
 
-.question-title {
-  margin: 20px 42px 42px;
-  color: #a6a6a6;
-  /* position: relative; */
-  font-size: 48px;
-}
-
-.question-navbar {
-  /* border: 2px solid black; */
-  padding: 10px 0 18px 42px;
-  border-bottom: 1px solid #a6a6a6;
-}
-
-.question-navbar li a span {
-  border: 1px solid #a6a6a6;
-  border-radius: 50px;
-  padding: 0 5px;
-  margin-left: 5px;
-  font-weight: 500;
-  color: #e57e22;
-}
-
-.main-nav-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 42px;
-}
-
-.main-nav-list a {
-  display: inline-block;
-  text-decoration: none;
-  color: #a6a6a6;
-  font-weight: 400;
-  font-size: 18px;
-}
 .question-content {
   padding: 0 42px;
-  height: 100vh;
+  height: 1000px;
   overflow-y: auto;
 }
 .question {
   /* border: 1px solid deeppink; */
   display: flex;
+  gap: 80px;
   justify-content: space-between;
   margin: 20px 0;
-  border-bottom: 1px solid #a6a6a6;
+  border-bottom: 1px solid #f8f9f9;
 }
 
 .question-section-logo {

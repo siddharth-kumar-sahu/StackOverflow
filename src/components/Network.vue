@@ -1,8 +1,8 @@
 <template>
   <div class="network-section">
-    <div class="network-tittle">
-      <span class="large">hot</span>
-      <span class="small">network questions</span>
+    <div class="title">
+      <span class="title-heading">hot</span>
+      <span class="title-subheading">Network questions</span>
     </div>
     <div class="network-content">
       <div class="network-content-question">
@@ -90,6 +90,6 @@ export default {};
 }
 
 .network-section-question p {
-  color: #0074cc;
+  color: #0a95ff;
 }
 </style>

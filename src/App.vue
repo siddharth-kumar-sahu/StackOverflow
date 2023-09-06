@@ -1,39 +1,14 @@
 <template>
-  <main>
-    <div class="container grid--2-cols">
-      <Sidebar />
-      <div class="main-content">
-        <div class="primary-header">
-          <div class="menu-option">
-            <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
-          </div>
-          <div class="search">
-            <ion-icon class="search-icon" name="search-outline"></ion-icon>
-            <form id="search-bar">
-              <input type="text" name="q" placeholder="Search" />
-            </form>
-          </div>
-          <div class="profile">
-            <div class="help">
-              <ion-icon name="help-buoy-outline"></ion-icon>
-              <p>Help</p>
-            </div>
-            <div class="tour">
-              <ion-icon name="desktop-outline"></ion-icon>
-              <p>Tour</p>
-            </div>
-            <div class="profile-pic">
-              <img src="./assets/Siddharth-min.jpeg" alt="Siddharth" />
-            </div>
-          </div>
-        </div>
-        <div class="questions-jobs-section">
-          <QuestionSection />
-          <JobNetwork />
-        </div>
+  <div class="container">
+    <Sidebar />
+    <div class="main-content">
+      <Navigation @search="search" />
+      <div class="questions-jobs-section">
+        <QuestionSection :searchTerm="searchTerm" />
+        <JobNetwork />
       </div>
     </div>
-  </main>
+  </div>
   <Footer />
 </template>
 
@@ -42,6 +17,7 @@ import Sidebar from "./components/Sidebar";
 import QuestionSection from "./components/QuestionSection";
 import JobNetwork from "./components/JobNetwork";
 import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
 
 export default {
   name: "App",
@@ -50,6 +26,18 @@ export default {
     QuestionSection,
     JobNetwork,
     Footer,
+    Navigation,
+  },
+  data() {
+    return {
+      searchTerm: "html",
+    };
+  },
+  methods: {
+    search(searchTerm) {
+      this.searchTerm = searchTerm;
+      console.log(this.searchTerm);
+    },
   },
 };
 </script>
@@ -61,86 +49,43 @@ export default {
   box-sizing: border-box;
 }
 #app {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-kerning: auto;
-  font-stretch: normal;
+  font-family: "Manrope", sans-serif;
   font-style: normal;
-  font-variant: normal;
-  font-variant-ligatures: normal;
   font-weight: normal;
 }
-.container {
-  max-width: 1500px;
 
-  /* padding: 0 32px; */
-  /* margin: 0 32px; */
+.container {
   display: grid;
-  /* border-bottom: 1px solid #a6a6a6; */
-}
-.grid--2-cols {
-  grid-template-columns: 230px 1270px;
+  grid-template-columns: 1fr 5fr;
 }
 
 .main-content {
-  /* border: 2px solid blue; */
-
-  max-width: 1500px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-}
-.primary-header {
-  max-width: 1270px;
-  /* border: 2px solid lightgreen; */
-  margin: 20px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.menu-icon,
-.search-icon {
-  color: #a6a6a6;
-  height: 24px;
-  width: 24px;
-}
-
-.search {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-.search input {
-  display: block;
-  padding: 10px 6px;
-  /* width: 100%; */
-  box-sizing: border-box;
-  border: none;
-  color: #a6a6a6;
-  height: 42px;
-  width: 900px;
-}
-
-.profile {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.help,
-.tour {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.profile-pic img {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
 }
 
 .questions-jobs-section {
-  display: flex;
+  display: grid;
+  grid-template-columns: 3.5fr 1.5fr;
+}
+
+.title {
+  padding: 0px 32px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.title-heading {
+  color: #e4e4e4;
+  font-size: 96px;
+  font-weight: 600;
+}
+
+.title-subheading {
+  font-size: 20px;
+  color: #a6a6a6;
+  left: 24px;
+  top: 40%;
+  position: absolute;
 }
 </style>
