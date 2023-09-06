@@ -34,12 +34,12 @@
         </div>
       </div>
     </div>
-    <NetworkSection />
+    <Network />
   </div>
 </template>
 
 <script>
-import NetworkSection from "./NetworkSection.vue";
+import Network from "./Network.vue";
 
 export default {
   data() {
@@ -73,7 +73,7 @@ export default {
     };
   },
   components: {
-    NetworkSection,
+    Network,
   },
 };
 </script>

@@ -9,7 +9,9 @@
           </div>
           <div class="search">
             <ion-icon class="search-icon" name="search-outline"></ion-icon>
-            <input type="text" name="q" placeholder="Search" />
+            <form id="search-bar">
+              <input type="text" name="q" placeholder="Search" />
+            </form>
           </div>
           <div class="profile">
             <div class="help">
@@ -27,27 +29,27 @@
         </div>
         <div class="questions-jobs-section">
           <QuestionSection />
-          <JobNetworkSection />
+          <JobNetwork />
         </div>
       </div>
     </div>
   </main>
-  <FooterSection />
+  <Footer />
 </template>
 
 <script>
 import Sidebar from "./components/Sidebar";
 import QuestionSection from "./components/QuestionSection";
-import JobNetworkSection from "./components/JobNetworkSection";
-import FooterSection from "./components/FooterSection";
+import JobNetwork from "./components/JobNetwork";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
   components: {
     Sidebar,
     QuestionSection,
-    JobNetworkSection,
-    FooterSection,
+    JobNetwork,
+    Footer,
   },
 };
 </script>

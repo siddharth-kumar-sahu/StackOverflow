@@ -44,7 +44,6 @@ export default {
   data() {
     return {
       questions: [],
-      activityTime: "",
     };
   },
   components: {
@@ -61,13 +60,18 @@ export default {
         const question = {
           id: item.question_id,
           title: item.title,
-          updatedAt: moment(item.last_activity_date, "YYYYMMDD").fromNow(),
+          updatedAt: moment.unix(item.last_activity_date).fromNow(),
           updatedBy: item.owner.display_name,
           tags: item.tags,
           votes: item.score,
           answer: item.answer_count,
           views: item.view_count,
         };
+        console.log(
+          moment.unix(item.last_activity_date).fromNow(),
+          item.last_activity_date
+        );
+        console.log(question.updatedAt);
         return question;
       });
 
