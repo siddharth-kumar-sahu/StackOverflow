@@ -77,13 +77,13 @@ export default {
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.1);
 }
 .logo-stackoverflow {
-  padding: 16px 10px;
+  padding: 12px 10px;
   margin-bottom: 48px;
 }
 
 .logo-stackoverflow img {
   height: 40px;
-  width: 152px;
+  width: 180px;
 }
 .sidebar-options {
   list-style: none;
