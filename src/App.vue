@@ -4,7 +4,7 @@
     <div class="main-content">
       <Navigation @search="search" />
       <div class="questions-jobs-section">
-        <QuestionSection :searchTerm="searchTerm" />
+        <QuestionSection />
         <JobNetwork />
       </div>
     </div>
@@ -27,17 +27,6 @@ export default {
     JobNetwork,
     Footer,
     Navigation,
-  },
-  data() {
-    return {
-      searchTerm: "html",
-    };
-  },
-  methods: {
-    search(searchTerm) {
-      this.searchTerm = searchTerm;
-      console.log(this.searchTerm);
-    },
   },
 };
 </script>

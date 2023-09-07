@@ -4,51 +4,70 @@
       <img src="../assets/stack_overflow.png" alt="stackoverflow logo" />
     </div>
     <ul class="sidebar-options">
-      <li class="sidebar-option-components">
-        <ion-icon class="sidebar-icon" name="help-outline"></ion-icon>
-        <a href="#">QUESTIONS</a>
-      </li>
-      <li class="sidebar-option-components">
-        <ion-icon class="sidebar-icon" name="bag-outline"></ion-icon>
-        <a href="#">JOBS</a>
-      </li>
-      <li class="sidebar-option-components">
-        <ion-icon class="sidebar-icon" name="document-text-outline"></ion-icon>
-        <a href="#">DOCUMENTATION</a>
-      </li>
-      <li class="sidebar-option-components">
-        <ion-icon class="sidebar-icon" name="pricetag-outline"></ion-icon>
-        <a href="#">TAGS</a>
-      </li>
-      <li class="sidebar-option-components">
-        <ion-icon class="sidebar-icon" name="person-outline"></ion-icon>
-        <a href="#">USERS</a>
-      </li>
-      <li class="sidebar-option-components">
-        <ion-icon class="sidebar-icon" name="bookmark-outline"></ion-icon>
-        <a href="#">BADGES</a>
-      </li>
-      <li class="sidebar-option-components">
-        <ion-icon class="sidebar-icon" name="mic-outline"></ion-icon>
-        <a href="#">ASK QUESTION</a>
-      </li>
-      <li class="sidebar-option-components">
-        <ion-icon
-          class="sidebar-icon"
-          name="file-tray-stacked-outline"
-        ></ion-icon>
-        <a href="#">STACK EXCHANGE</a>
-      </li>
-      <li class="sidebar-option-components">
-        <ion-icon class="sidebar-icon" name="mail-outline"></ion-icon>
-        <a href="#">INBOX <span>24</span></a>
+      <li
+        class="sidebar-option-components"
+        v-for="pageLink in pageLinks"
+        :key="pageLink.pageLinkTitle"
+        @click="activeLink = pageLink.pageLinkTitle"
+        :class="{ 'pageLink-active': pageLink.pageLinkTitle === activeLink }"
+      >
+        <ion-icon class="sidebar-icon" :name="pageLink.icon"></ion-icon>
+        <a href="#">{{ pageLink.pageLinkTitle }}</a>
+        <span class="pageLink-item" v-if="pageLink.item">{{
+          pageLink.item
+        }}</span>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      pageLinks: [
+        {
+          pageLinkTitle: "QUESTIONS",
+          icon: "help-outline",
+        },
+        {
+          pageLinkTitle: "JOBS",
+          icon: "bag-outline",
+        },
+        {
+          pageLinkTitle: "DOCUMENTATION",
+          icon: "document-text-outline",
+        },
+        {
+          pageLinkTitle: "TAGS",
+          icon: "pricetag-outline",
+        },
+        {
+          pageLinkTitle: "USERS",
+          icon: "person-outline",
+        },
+        {
+          pageLinkTitle: "BADGES",
+          icon: "bookmark-outline",
+        },
+        {
+          pageLinkTitle: "ASK QUESTION",
+          icon: "help-outline",
+        },
+        {
+          pageLinkTitle: "STACK EXCHANGE",
+          icon: "mic-outline",
+        },
+        {
+          pageLinkTitle: "INBOX",
+          icon: "mail-outline",
+          item: 24,
+        },
+      ],
+      activeLink: "QUESTIONS",
+    };
+  },
+};
 </script>
 
 <style>
@@ -58,7 +77,8 @@ export default {};
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.1);
 }
 .logo-stackoverflow {
-  padding: 20px 10px;
+  padding: 16px 10px;
+  margin-bottom: 48px;
 }
 
 .logo-stackoverflow img {
@@ -83,16 +103,21 @@ export default {};
   color: #a6a6a6;
 }
 
-.sidebar-options li a span {
+.sidebar-option-components .pageLink-item {
   border: 1px solid #a6a6a6;
   border-radius: 70px;
   padding: 0 5px;
   margin-left: 5px;
   font-weight: 500;
-  color: #e57e22;
+  color: #f48224;
 }
 
 .sidebar-icon {
   color: #a6a6a6;
+}
+
+.pageLink-active {
+  border-left: 4px solid #f48224;
+  padding-left: 18px;
 }
 </style>

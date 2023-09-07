@@ -24,13 +24,12 @@
 </template>
 
 <script>
-import QuestionNav from "./QuestionNav.vue";
+import QuestionNav from "./QuestionNav";
 import Question from "./Question";
 import Loader from "./Loader";
 import moment from "moment";
 
 export default {
-  props: ["searchTerm"],
   data() {
     return {
       questions: [],
@@ -45,7 +44,8 @@ export default {
   async mounted() {
     try {
       this.loading = true;
-      const apiUrl = `https://api.stackexchange.com/2.3/questions?key=U4DMV*8nvpm3EOpvf69Rxw((&site=stackoverflow&order=desc&sort=activity&filter=default&tagged=${this.searchTerm}`;
+      const apiUrl =
+        "https://api.stackexchange.com/2.3/questions?key=U4DMV*8nvpm3EOpvf69Rxw((&site=stackoverflow&order=desc&sort=activity&filter=default";
       const res = await fetch(apiUrl);
       const data = await res.json();
 

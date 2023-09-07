@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import Network from "./Network.vue";
-import Job from "./Job.vue";
+import Network from "./Network";
+import Job from "./Job";
 
 export default {
   data() {
@@ -86,7 +86,7 @@ export default {
   justify-content: center;
   gap: 12px;
   margin-bottom: 18px;
-  border-bottom: 1px solid #a6a6a6;
+  border-bottom: 1px solid #e4e4e4;
 }
 
 .view-more h4 a {

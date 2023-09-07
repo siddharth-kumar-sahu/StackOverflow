@@ -13,7 +13,7 @@
           <ul class="social-links">
             <li>
               <a class="footer-link" href="#"
-                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
               ></a>
             </li>
             <li>
@@ -23,7 +23,7 @@
             </li>
             <li>
               <a class="footer-link" href="#"
-                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
               ></a>
             </li>
           </ul>
@@ -44,6 +44,17 @@
             </li>
           </ul>
         </nav>
+      </div>
+      <div class="copyright-license">
+        <div class="copyright">
+          <p>
+            site design/logo &copy; 2016 Stack Exchange Inc; user
+            contributionslisenced under cc by-sa 3.0 with attribution required
+          </p>
+        </div>
+        <div class="reserve">
+          <p>rev 2016.8.1.3852</p>
+        </div>
       </div>
     </div>
   </footer>
@@ -70,7 +81,7 @@ export default {
       ],
       footerNavColumn: [
         {
-          columnHeader: "TECHNOLOGY1",
+          columnHeader: "TECHNOLOGY",
           columnItems: [
             "Stack Overflow",
             "Server Fault",
@@ -83,7 +94,7 @@ export default {
           ],
         },
         {
-          columnHeader: "TECHNOLOGY2",
+          columnHeader: "   ",
           columnItems: [
             "Programmers",
             "Unix & Linux",
@@ -151,7 +162,7 @@ export default {
 
 <style>
 .footer {
-  border-top: 1px solid #e4e4e4;
+  border-top: 2px solid #e4e4e4;
   width: 100%;
   padding: 0 36px;
 }
@@ -162,7 +173,12 @@ export default {
   /* border: 2px solid red; */
 
   padding: 36px 0;
-  border-bottom: 1px solid #a6a6a6;
+  border-bottom: 2px solid #e4e4e4;
+}
+
+.footer-details-section {
+  border-bottom: 2px solid #e4e4e4;
+  padding-bottom: 20px;
 }
 
 .footer-navbar-list {
@@ -193,7 +209,7 @@ export default {
 }
 
 .footer-details-section {
-  margin: 20px 0;
+  margin: 20px 0 0;
 }
 
 .grid {
@@ -203,7 +219,8 @@ export default {
 }
 
 .grid--6-cols {
-  grid-template-columns: repeat(6, 1fr);
+  /* grid-template-columns: repeat(6, 1fr); */
+  grid-template-columns: 1fr 1.1fr 1fr 1fr 1fr 1fr;
 }
 
 .footer-heading {
@@ -231,5 +248,20 @@ export default {
 .footer-link:hover,
 .footer-link:active {
   color: #555;
+}
+
+.footer-nav li:last-child > a {
+  font-size: 12px;
+  font-weight: 800;
+  /* background: yellow; */
+}
+
+.copyright-license {
+  margin-top: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
 }
 </style>
