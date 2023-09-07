@@ -97,6 +97,8 @@ export default {
   align-items: center;
   gap: 16px;
   padding: 5px 10px;
+  border-left: 4px solid transparent;
+  padding-left: 18px;
 }
 .sidebar-options li a {
   font-size: 15px;
