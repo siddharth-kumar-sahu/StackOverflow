@@ -103,6 +103,7 @@ export default {
 .sidebar-options li a {
   font-size: 15px;
   color: #a6a6a6;
+  text-decoration: none;
 }
 
 .sidebar-option-components .pageLink-item {
