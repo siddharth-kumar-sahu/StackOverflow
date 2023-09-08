@@ -52,11 +52,11 @@ export default {
         },
         {
           pageLinkTitle: "ASK QUESTION",
-          icon: "help-outline",
+          icon: "mic-outline",
         },
         {
           pageLinkTitle: "STACK EXCHANGE",
-          icon: "mic-outline",
+          icon: "file-tray-stacked-outline",
         },
         {
           pageLinkTitle: "INBOX",

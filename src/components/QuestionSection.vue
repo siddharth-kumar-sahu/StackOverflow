@@ -66,7 +66,6 @@ export default {
       this.questions = questions;
       this.loading = false;
     } catch (e) {
-      console.log(e);
       this.loading = false;
     }
   },
